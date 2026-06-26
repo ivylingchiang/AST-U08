@@ -1,0 +1,151 @@
+(expr) u08@nelson-Lab:~/workspace/HNSW$ python3 scripts/slim_hnsw_EzSemDedup/E07_new_threshold_sweep.py 
+Loading sample: /home/u08/workspace/HNSW/data/samples/slimpajama_100k.jsonl
+N = 100,000
+Loading pairs: /home/u08/workspace/HNSW/data/hnsw_candidate_pairs/slim_hnsw_EzSemDedup/sentence-transformers_all-MiniLM-L6-v2.parquet
+
+Processing threshold = 0.80
+pairs=7,557 drop=850 drop_rate=0.0085
+
+Processing threshold = 0.82
+pairs=4,779 drop=679 drop_rate=0.0068
+
+Processing threshold = 0.84
+pairs=2,370 drop=515 drop_rate=0.0052
+
+Processing threshold = 0.86
+pairs=1,040 drop=362 drop_rate=0.0036
+
+Processing threshold = 0.88
+pairs=515 drop=195 drop_rate=0.0019
+
+Processing threshold = 0.90
+pairs=266 drop=98 drop_rate=0.0010
+
+Processing threshold = 0.92
+pairs=106 drop=55 drop_rate=0.0006
+
+===================================
+Easy SemDedup Threshold Sweep Done
+===================================
+CSV  : /home/u08/workspace/HNSW/data/reports/slim_hnsw_EzSemDedup/sentence-transformers_all-MiniLM-L6-v2_threshold_sweep_20260613_135511.csv
+JSON : /home/u08/workspace/HNSW/data/reports/slim_hnsw_EzSemDedup/sentence-transformers_all-MiniLM-L6-v2_threshold_sweep_20260613_135511.json
+Total Time = 0.94s
+
+
+
+---
+(expr) u08@nelson-Lab:~/workspace/HNSW$ python3 scripts/slim_hnsw_EzSemDedup/E08_build_dedup_dataset.py 
+============================================================
+Easy SemDedup Dataset Builder
+============================================================
+Threshold : 0.9
+Counting dataset size...
+Total documents : 100000
+Loading candidate pairs...
+Original pairs : 7,557
+Pairs >= 0.9: 266
+Building connected components...
+Components : 99,902
+Saved: /home/u08/workspace/HNSW/data/EzSemDedup/keep_ids_09.txt
+Saved: /home/u08/workspace/HNSW/data/EzSemDedup/drop_ids_09.txt
+Generating drop_pairs.parquet ...
+Saved: /home/u08/workspace/HNSW/data/EzSemDedup/drop_pairs_09.parquet
+Generating deduplicated dataset...
+Saved: /home/u08/workspace/HNSW/data/EzSemDedup/slimpajama_100k_dedup_09.jsonl
+
+============================================================
+Threshold        : 0.9
+Original Docs    : 100,000
+Keep Docs        : 99,902
+Drop Docs        : 98
+Drop Rate        : 0.10%
+============================================================
+
+---
+(expr) u08@nelson-Lab:~/workspace/HNSW$ python3 scripts/slim_hnsw_EzSemDedup/E08_build_dedup_dataset.py 
+============================================================
+Easy SemDedup Dataset Builder
+============================================================
+Threshold : 0.88
+Counting dataset size...
+Total documents : 100000
+Loading candidate pairs...
+Original pairs : 7,557
+Pairs >= 0.88: 515
+Building connected components...
+Components : 99,805
+Saved: /home/u08/workspace/HNSW/data/EzSemDedup/keep_ids_088.txt
+Saved: /home/u08/workspace/HNSW/data/EzSemDedup/drop_ids_088.txt
+Generating drop_pairs.parquet ...
+Saved: /home/u08/workspace/HNSW/data/EzSemDedup/drop_pairs_088.parquet
+Generating deduplicated dataset...
+Saved: /home/u08/workspace/HNSW/data/EzSemDedup/slimpajama_100k_dedup_088.jsonl
+
+============================================================
+Threshold        : 0.88
+Original Docs    : 100,000
+Keep Docs        : 99,805
+Drop Docs        : 195
+Drop Rate        : 0.19%
+============================================================
+
+
+(expr) u08@nelson-Lab:~/workspace/HNSW$ python3 scripts/slim_hnsw_EzSemDedup/E11_analysis_draw.py 
+Loading: /home/u08/workspace/HNSW/data/reports/slim_hnsw_EzSemDedup/sentence-transformers_all-MiniLM-L6-v2_threshold_sweep_20260613_135511.json
+                               method  n_total  sim_threshold  ...  avg_component_size  union_time_sec  threshold_time_sec
+0  hnsw_candidates_plus_easy_semdedup   100000           0.80  ...              1.0086          0.0058              0.0785
+1  hnsw_candidates_plus_easy_semdedup   100000           0.82  ...              1.0068          0.0043              0.0667
+2  hnsw_candidates_plus_easy_semdedup   100000           0.84  ...              1.0052          0.0026              0.0637
+3  hnsw_candidates_plus_easy_semdedup   100000           0.86  ...              1.0036          0.0017              0.0645
+4  hnsw_candidates_plus_easy_semdedup   100000           0.88  ...              1.0020          0.0015              0.0635
+5  hnsw_candidates_plus_easy_semdedup   100000           0.90  ...              1.0010          0.0014              0.0606
+6  hnsw_candidates_plus_easy_semdedup   100000           0.92  ...              1.0006          0.0013              0.0597
+
+[7 rows x 13 columns]
+
+Saved:
+/home/u08/workspace/HNSW/reports/slim_hnsw_EzSemDedup/png/threshold_vs_duplicate_components.png
+/home/u08/workspace/HNSW/reports/slim_hnsw_EzSemDedup/png/threshold_vs_max_component_size.png
+/home/u08/workspace/HNSW/reports/slim_hnsw_EzSemDedup/png/threshold_vs_pairs_drop_droprate.png
+
+
+(expr) u08@nelson-Lab:~/workspace/HNSW$ python3 scripts/slim_hnsw_EzSemDedup/E12_recall_evaluation.py 
+============================================================
+Dedup Recall Evaluation (EzSemDedup + HNSW)
+============================================================
+Loading embeddings...
+Dataset size: 20000
+
+Building ground truth pairs...
+DEBUG: 目前這批資料的最大相似度是 0.9459
+GT pairs: 14 (took 15.00s)
+
+Loading predicted pairs...
+Pred pairs: 14 (took 0.01s)
+
+Computing pair recall...
+Pair Recall: 1.000000
+TP: 14, FN: 0
+
+Computing cluster recall...
+Cluster Recall: 1.000000
+
+Compression:
+Drop Rate (approx): 0.9999
+
+Saved: /home/u08/workspace/HNSW/data/reports/slim_hnsw_EzSemDedup/dedup_recall_report.csv
+
+Done.
+
+
+
+[*] 最終平均數據已儲存至: /home/u08/workspace/HNSW/data/reports/slim_hnsw_EzSemDedup/log/final_avg_metrics.csv
+                       script  duration_sec  peak_rss_mem_mb  avg_cpu_percent  total_io_read_mb  total_io_write_mb
+0    E01_sample_slimpajama.py     18.634218      1252.857317        42.895075      5.246016e+02       4.243400e+02
+1                E02_embed.py    154.053333      1880.969852       155.659966      8.794091e+02       1.522900e+02
+2            E03_hnsw_eval.py      4.000000      1825.361915       175.379835      1.096626e+00       1.000000e-09
+3           E04_hnsw_sweep.py     13.003332      6287.909309       151.114606      1.000000e-09       1.000000e-09
+4      E05_make_candidates.py      9.010000       526.673317      1354.075740      1.000000e-02       1.000000e-09
+5        E06_semdedup_hnsw.py      3.000000      1226.998854       101.443207      1.000000e-02       1.000000e-09
+6      E07_threshold_sweep.py      2.000000       550.703332       102.500000      1.000000e-09       1.000000e-09
+7  E08_build_dedup_dataset.py      2.000000       144.973331       102.166395      3.733037e-01       1.999452e+02

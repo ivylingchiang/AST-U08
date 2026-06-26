@@ -1,0 +1,104 @@
+N,GT_THRESHOLD,SAMPLE_SIZE,gt_pairs,pred_pairs,pair_recall,cluster_recall,tp,fn,drop_rate_proxy,e2e_recall,e2e_tp,e2e_fn
+20000,0.95,,0,0,0.0,0.0,0,0,1.0,0.0,0,0
+20000,0.9,,14,14,1.0,1.0,14,0,0.99993,1.0,14,0
+50000,0.95,,5,5,1.0,1.0,5,0,0.99999,1.0,5,0
+50000,0.9,,81,81,1.0,1.0,81,0,0.999838,1.0,81,0
+
+
+
+(expr) u08@nelson-Lab:~/workspace/HNSW$ python3 scripts/slim_hnsw_EzSemDedup/E12_recall_evaluation.py 
+============================================================
+Dedup Recall Evaluation (EzSemDedup + HNSW)
+============================================================
+Loading embeddings...
+Dataset size: 20000
+
+Building ground truth pairs...
+DEBUG: 目前這批資料的最大相似度是 0.9459
+GT pairs: 0 (took 14.04s)
+
+Loading predicted pairs...
+Pred pairs: 0 (took 0.03s)
+
+Computing pair recall...
+Pair Recall: 0.000000
+TP: 0, FN: 0
+
+Computing cluster recall...
+Cluster Recall: 0.000000
+
+Compression:
+Drop Rate (approx): 1.0000
+
+Computing End-to-End SemDedup recall...
+Surviving documents (in top 20000): 19,983 (took 1.03s)
+End-to-End Recall: 0.000000
+Successfully deduplicated (TP): 0, Leaks (FN): 0
+
+Saved: /home/u08/workspace/HNSW/reports/slim_hnsw_EzSemDedup/dedup_recall_report.csv
+
+
+(expr) u08@nelson-Lab:~/workspace/HNSW$ python3 scripts/slim_hnsw_EzSemDedup/E12_recall_evaluation.py 
+============================================================
+Dedup Recall Evaluation (EzSemDedup + HNSW)
+============================================================
+Loading embeddings...
+Dataset size: 20000
+
+Building ground truth pairs...
+DEBUG: 目前這批資料的最大相似度是 0.9459
+GT pairs: 14 (took 14.24s)
+
+Loading predicted pairs...
+Pred pairs: 14 (took 0.01s)
+
+Computing pair recall...
+Pair Recall: 1.000000
+TP: 14, FN: 0
+
+Computing cluster recall...
+Cluster Recall: 1.000000
+
+Compression:
+Drop Rate (approx): 0.9999
+
+Computing End-to-End SemDedup recall...
+Surviving documents (in top 20000): 19,983 (took 0.98s)
+End-to-End Recall: 1.000000
+Successfully deduplicated (TP): 14, Leaks (FN): 0
+
+Saved: /home/u08/workspace/HNSW/reports/slim_hnsw_EzSemDedup/dedup_recall_report.csv
+
+
+(expr) u08@nelson-Lab:~/workspace/HNSW$ python3 scripts/slim_hnsw_EzSemDedup/E12_recall_evaluation.py 
+============================================================
+Dedup Recall Evaluation (EzSemDedup + HNSW)
+============================================================
+Loading embeddings...
+Dataset size: 50000
+
+Building ground truth pairs...
+DEBUG: 目前這批資料的最大相似度是 0.9933
+^[[A^[[A^[[B^[[B^[[BGT pairs: 5 (took 93.28s)
+
+Loading predicted pairs...
+Pred pairs: 5 (took 0.05s)
+
+Computing pair recall...
+Pair Recall: 1.000000
+TP: 5, FN: 0
+
+Computing cluster recall...
+Cluster Recall: 1.000000
+
+Compression:
+Drop Rate (approx): 1.0000
+
+Computing End-to-End SemDedup recall...
+Surviving documents (in top 50000): 49,926 (took 1.02s)
+End-to-End Recall: 1.000000
+Successfully deduplicated (TP): 5, Leaks (FN): 0
+
+Saved: /home/u08/workspace/HNSW/reports/slim_hnsw_EzSemDedup/dedup_recall_report.csv
+
+

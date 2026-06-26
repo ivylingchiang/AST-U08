@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+.venv/
+.env/
+
+# VS Code
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Large projects
+expr/
+
+# Experiment outputs
+**/data/
+**/log/
+**/logs/
+**/report/
+**/reports/
+**/output/
+**/outputs/
+
+# Models / indexes
+*.bin
+*.index
+*.npy
+*.npz
+*.pkl
+*.pt
+*.pth
+*.ckpt
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# OS
+.DS_Store
