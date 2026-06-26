@@ -1,0 +1,260 @@
+{
+  "timestamp": "20260611_011321",
+  "total_pipeline_time_sec": 189.4116,
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding": {
+    "text_mode": "first",
+    "max_chars": "4000",
+    "embedding_path": "/home/u08/workspace/HNSW/data/embeddings/slimpajama_100k_emb.npy",
+    "meta_path": "/home/u08/workspace/HNSW/data/embeddings/slimpajama_100k_meta.jsonl"
+  },
+  "hnsw": {
+    "M": 16,
+    "ef_construction": 100,
+    "ef": 100,
+    "candidate_k": 100,
+    "candidate_min_similarity": 0.75
+  },
+  "dedup": {
+    "thresholds": [
+      "0.80",
+      "0.82",
+      "0.84",
+      "0.86",
+      "0.88",
+      "0.90",
+      "0.92"
+    ],
+    "final_threshold": "0.88",
+    "keep_policy": "longest"
+  },
+  "paths": {
+    "root": "/home/u08/workspace/HNSW",
+    "scripts_dir": "/home/u08/workspace/HNSW/scripts/slim_hnsw_ImproveSemDedup",
+    "sample_jsonl": "/home/u08/workspace/HNSW/data/samples/slimpajama_100k.jsonl",
+    "embedding": "/home/u08/workspace/HNSW/data/embeddings/slimpajama_100k_emb.npy",
+    "meta": "/home/u08/workspace/HNSW/data/embeddings/slimpajama_100k_meta.jsonl",
+    "candidate_pairs": "/home/u08/workspace/HNSW/data/hnsw/candidate_pairs.parquet",
+    "hnsw_eval_report": "/home/u08/workspace/HNSW/data/reports/hnsw_eval.csv",
+    "threshold_sweep_report": "/home/u08/workspace/HNSW/data/reports/semdedup_backend_hnsw_sweep.csv",
+    "manual_top": "/home/u08/workspace/HNSW/data/reports/manual_pairs_top_088.txt",
+    "manual_near": "/home/u08/workspace/HNSW/data/reports/manual_pairs_near_088.txt",
+    "final_keep_ids": "/home/u08/workspace/HNSW/data/semdedup/keep_ids.txt",
+    "final_drop_ids": "/home/u08/workspace/HNSW/data/semdedup/drop_ids.txt",
+    "final_drop_pairs": "/home/u08/workspace/HNSW/data/semdedup/drop_pairs.parquet",
+    "final_dedup_jsonl": "/home/u08/workspace/HNSW/data/semdedup/slimpajama_100k_dedup.jsonl",
+    "final_dedup_report": "/home/u08/workspace/HNSW/data/reports/semdedup_backend_hnsw_report.json"
+  },
+  "files": {
+    "sample_jsonl": {
+      "exists": true,
+      "path": "/home/u08/workspace/HNSW/data/samples/slimpajama_100k.jsonl",
+      "size_bytes": 444948077
+    },
+    "embedding": {
+      "exists": true,
+      "path": "/home/u08/workspace/HNSW/data/embeddings/slimpajama_100k_emb.npy",
+      "size_bytes": 153600128
+    },
+    "meta": {
+      "exists": true,
+      "path": "/home/u08/workspace/HNSW/data/embeddings/slimpajama_100k_meta.jsonl",
+      "size_bytes": 8725227
+    },
+    "candidate_pairs": {
+      "exists": true,
+      "path": "/home/u08/workspace/HNSW/data/hnsw/candidate_pairs.parquet",
+      "size_bytes": 353534
+    },
+    "hnsw_eval_report": {
+      "exists": true,
+      "path": "/home/u08/workspace/HNSW/data/reports/hnsw_eval.csv",
+      "size_bytes": 194
+    },
+    "threshold_sweep_report": {
+      "exists": true,
+      "path": "/home/u08/workspace/HNSW/data/reports/semdedup_backend_hnsw_sweep.csv",
+      "size_bytes": 329
+    },
+    "manual_top": {
+      "exists": true,
+      "path": "/home/u08/workspace/HNSW/data/reports/manual_pairs_top_088.txt",
+      "size_bytes": 233688
+    },
+    "manual_near": {
+      "exists": true,
+      "path": "/home/u08/workspace/HNSW/data/reports/manual_pairs_near_088.txt",
+      "size_bytes": 246961
+    },
+    "final_keep_ids": {
+      "exists": true,
+      "path": "/home/u08/workspace/HNSW/data/semdedup/keep_ids.txt",
+      "size_bytes": 588010
+    },
+    "final_drop_ids": {
+      "exists": true,
+      "path": "/home/u08/workspace/HNSW/data/semdedup/drop_ids.txt",
+      "size_bytes": 880
+    },
+    "final_drop_pairs": {
+      "exists": true,
+      "path": "/home/u08/workspace/HNSW/data/semdedup/drop_pairs.parquet",
+      "size_bytes": 8799
+    },
+    "final_dedup_jsonl": {
+      "exists": true,
+      "path": "/home/u08/workspace/HNSW/data/semdedup/slimpajama_100k_dedup.jsonl",
+      "size_bytes": 444318781
+    },
+    "final_dedup_report": {
+      "exists": true,
+      "path": "/home/u08/workspace/HNSW/data/reports/semdedup_backend_hnsw_report.json",
+      "size_bytes": 742
+    }
+  },
+  "steps": [
+    {
+      "step": "01_sample_slimpajama",
+      "script": "I01_sample_slimpajama.py",
+      "time_sec": 13.0155,
+      "return_code": 0
+    },
+    {
+      "step": "02_embed",
+      "script": "I02_embed.py",
+      "time_sec": 154.3957,
+      "return_code": 0
+    },
+    {
+      "step": "03_hnsw_eval",
+      "script": "I03_hnsw_eval.py",
+      "time_sec": 4.3125,
+      "return_code": 0
+    },
+    {
+      "step": "04_make_hnsw_candidates",
+      "script": "I04_make_hnsw_candidates.py",
+      "time_sec": 9.3363,
+      "return_code": 0
+    },
+    {
+      "step": "05_threshold_sweep",
+      "script": "I05_threshold_sweep.py",
+      "time_sec": 1.0593,
+      "return_code": 0
+    },
+    {
+      "step": "07_inspect_top_pairs",
+      "script": "I07_inspect_pairs.py",
+      "time_sec": 1.5709,
+      "return_code": 0
+    },
+    {
+      "step": "07_inspect_near_threshold_pairs",
+      "script": "I07_inspect_pairs.py",
+      "time_sec": 1.5658,
+      "return_code": 0
+    },
+    {
+      "step": "06_final_semdedup_backend_from_hnsw",
+      "script": "I06_semdedup_backend_from_hnsw.py",
+      "time_sec": 4.1498,
+      "return_code": 0
+    }
+  ],
+  "hnsw_eval": {
+    "N": 20000,
+    "K": 10,
+    "M": 16,
+    "ef_construction": 100,
+    "ef": 100,
+    "recall_at_10": 0.995865,
+    "build_time_sec": 0.1971621513366699,
+    "query_time_sec": 0.1956422328948974,
+    "qps": 102227.41636129437,
+    "exact_time_sec": 3.585424900054932
+  },
+  "threshold_sweep": [
+    {
+      "threshold": 0.8,
+      "n_pairs": 10058,
+      "n_drop": 852,
+      "drop_rate": 0.00852,
+      "n_components": 99148,
+      "n_duplicate_components": 251,
+      "max_component_size": 440
+    },
+    {
+      "threshold": 0.82,
+      "n_pairs": 5134,
+      "n_drop": 679,
+      "drop_rate": 0.00679,
+      "n_components": 99321,
+      "n_duplicate_components": 165,
+      "max_component_size": 403
+    },
+    {
+      "threshold": 0.84,
+      "n_pairs": 2372,
+      "n_drop": 515,
+      "drop_rate": 0.00515,
+      "n_components": 99485,
+      "n_duplicate_components": 105,
+      "max_component_size": 339
+    },
+    {
+      "threshold": 0.86,
+      "n_pairs": 1040,
+      "n_drop": 362,
+      "drop_rate": 0.00362,
+      "n_components": 99638,
+      "n_duplicate_components": 70,
+      "max_component_size": 232
+    },
+    {
+      "threshold": 0.88,
+      "n_pairs": 515,
+      "n_drop": 195,
+      "drop_rate": 0.00195,
+      "n_components": 99805,
+      "n_duplicate_components": 69,
+      "max_component_size": 56
+    },
+    {
+      "threshold": 0.9,
+      "n_pairs": 266,
+      "n_drop": 98,
+      "drop_rate": 0.00098,
+      "n_components": 99902,
+      "n_duplicate_components": 48,
+      "max_component_size": 27
+    },
+    {
+      "threshold": 0.92,
+      "n_pairs": 106,
+      "n_drop": 55,
+      "drop_rate": 0.00055,
+      "n_components": 99945,
+      "n_duplicate_components": 29,
+      "max_component_size": 21
+    }
+  ],
+  "final_dedup": {
+    "n_total": 100000,
+    "sim_threshold": 0.88,
+    "n_pairs_after_threshold": 515,
+    "n_used_pairs": 149,
+    "n_skipped_pairs": 366,
+    "n_keep": 99851,
+    "n_drop": 149,
+    "drop_rate": 0.00149,
+    "method": "hnsw_candidates_plus_semdedup_backend",
+    "keep_policy": "longest",
+    "input_sample": "/home/u08/workspace/HNSW/data/samples/slimpajama_100k.jsonl",
+    "input_pairs": "/home/u08/workspace/HNSW/data/hnsw/candidate_pairs.parquet",
+    "out_keep": "/home/u08/workspace/HNSW/data/semdedup/keep_ids.txt",
+    "out_drop": "/home/u08/workspace/HNSW/data/semdedup/drop_ids.txt",
+    "out_drop_pairs": "/home/u08/workspace/HNSW/data/semdedup/drop_pairs.parquet",
+    "out_dedup_jsonl": "/home/u08/workspace/HNSW/data/semdedup/slimpajama_100k_dedup.jsonl"
+  }
+}

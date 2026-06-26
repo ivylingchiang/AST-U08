@@ -1,0 +1,8 @@
+| 評估指標 (Metrics) | 幾何平均數結果 (Geometric Mean) |
+| :--- | :---: |
+| Dataset_Sampling_Time_sec      |         25.1772 s |
+| Embedding_Runtime_sec          |        167.0868 s |
+| Build_Time_sec                 |          0.2289 s |
+| Query_Time_sec                 |          0.2312 s |
+| QPS                            |        86512.58 |
+| Recall@10                      |        0.995870 |

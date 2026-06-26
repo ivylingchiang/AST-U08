@@ -1,0 +1,10 @@
+{
+  "n_total": 100000,
+  "sim_threshold": 0.88,
+  "n_candidate_pairs": 2445,
+  "n_keep": 99557,
+  "n_drop": 443,
+  "drop_rate": 0.00443,
+  "n_components": 99557,
+  "n_duplicate_components": 116
+}

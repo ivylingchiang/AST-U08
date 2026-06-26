@@ -1,0 +1,8 @@
+method,n_total,sim_threshold,n_pairs_after_threshold,n_keep,n_drop,drop_rate,n_components,n_duplicate_components,max_component_size,avg_component_size,union_time_sec,threshold_time_sec
+hnsw_candidates_plus_easy_semdedup,100000,0.8,7557,99150,850,0.0085,99150,251,438,1.0086,0.0058,0.0785
+hnsw_candidates_plus_easy_semdedup,100000,0.82,4779,99321,679,0.00679,99321,165,403,1.0068,0.0043,0.0667
+hnsw_candidates_plus_easy_semdedup,100000,0.84,2370,99485,515,0.00515,99485,105,339,1.0052,0.0026,0.0637
+hnsw_candidates_plus_easy_semdedup,100000,0.86,1040,99638,362,0.00362,99638,70,232,1.0036,0.0017,0.0645
+hnsw_candidates_plus_easy_semdedup,100000,0.88,515,99805,195,0.00195,99805,69,56,1.002,0.0015,0.0635
+hnsw_candidates_plus_easy_semdedup,100000,0.9,266,99902,98,0.00098,99902,48,27,1.001,0.0014,0.0606
+hnsw_candidates_plus_easy_semdedup,100000,0.92,106,99945,55,0.00055,99945,29,21,1.0006,0.0013,0.0597

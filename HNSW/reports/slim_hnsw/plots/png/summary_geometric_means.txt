@@ -1,0 +1,9 @@
+============================================================
+Geometric Mean Summary Report (4 Runs Log Data)
+============================================================
+Dataset_Sampling_Time_sec      : 25.1772
+Embedding_Runtime_sec          : 167.0868
+Build_Time_sec                 : 0.2289
+Query_Time_sec                 : 0.2312
+QPS                            : 86512.5773
+Recall@10                      : 0.9959

@@ -1,0 +1,32 @@
+[
+  {
+    "sim_threshold": 0.88,
+    "n_total": 100000,
+    "n_candidate_pairs": 515,
+    "n_keep": 99805,
+    "n_drop": 195,
+    "drop_rate": 0.00195,
+    "n_components": 99805,
+    "n_duplicate_components": 69
+  },
+  {
+    "sim_threshold": 0.9,
+    "n_total": 100000,
+    "n_candidate_pairs": 266,
+    "n_keep": 99902,
+    "n_drop": 98,
+    "drop_rate": 0.00098,
+    "n_components": 99902,
+    "n_duplicate_components": 48
+  },
+  {
+    "sim_threshold": 0.92,
+    "n_total": 100000,
+    "n_candidate_pairs": 106,
+    "n_keep": 99945,
+    "n_drop": 55,
+    "drop_rate": 0.00055,
+    "n_components": 99945,
+    "n_duplicate_components": 29
+  }
+]

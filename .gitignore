@@ -22,7 +22,8 @@ expr/
 **/log/
 **/logs/
 **/report/
-**/reports/
+# **/reports/
+**/Nreports/
 **/output/
 **/outputs/
 

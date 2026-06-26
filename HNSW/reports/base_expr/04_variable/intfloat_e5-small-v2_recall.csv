@@ -1,0 +1,2 @@
+N,K,M,ef_construction,ef,recall_at_10,build_time_sec,query_time_sec,qps,exact_time_sec
+20000,10,32,400,200,0.99888,2.8497097492218018,1.2678072452545166,15775.268736522272,35.77649927139282

@@ -1,0 +1,18 @@
+{
+  "n_total": 100000,
+  "sim_threshold": 0.88,
+  "n_pairs_after_threshold": 515,
+  "n_used_pairs": 149,
+  "n_skipped_pairs": 366,
+  "n_keep": 99851,
+  "n_drop": 149,
+  "drop_rate": 0.00149,
+  "method": "hnsw_candidates_plus_semdedup_backend",
+  "keep_policy": "longest",
+  "input_sample": "/home/u08/workspace/HNSW/data/samples/slimpajama_100k.jsonl",
+  "input_pairs": "/home/u08/workspace/HNSW/data/hnsw/candidate_pairs.parquet",
+  "out_keep": "/home/u08/workspace/HNSW/data/semdedup/keep_ids.txt",
+  "out_drop": "/home/u08/workspace/HNSW/data/semdedup/drop_ids.txt",
+  "out_drop_pairs": "/home/u08/workspace/HNSW/data/semdedup/drop_pairs.parquet",
+  "out_dedup_jsonl": "/home/u08/workspace/HNSW/data/semdedup/slimpajama_100k_dedup.jsonl"
+}

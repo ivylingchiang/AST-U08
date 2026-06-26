@@ -1,0 +1,2 @@
+model,N,K,M,ef_construction,ef,recall_at_10,exact_time_sec,build_time_sec,query_time_sec,qps
+sentence-transformers/all-MiniLM-L6-v2,20000,10,16,100,100,0.99585,11.527950286865234,0.20756983757019043,0.20493459701538086,97592.11129440945

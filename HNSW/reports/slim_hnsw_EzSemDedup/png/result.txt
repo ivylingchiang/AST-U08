@@ -1,0 +1,86 @@
+【結果摘要】各項指標之幾何平均數 (Geometric Mean):
+--------------------------------------------------
+  * Dataset_Sampling_Time_sec          : 11.967388 秒
+  * Dataset_Size                       : 20000
+  * Embed_Runtime_sec                  : 143.458770 秒
+  * M                                  : 16.000000 秒
+  * Metrics_Exact_Time_sec             : 2.482454 秒
+  * Metrics_HNSW_Build_Query_sec       : 0.232394 秒
+  * Metrics_Recall                     : 0.998840 (99.8840%)
+  * Random_Read_Speed_MBps             : 71.64
+  * Random_Read_Time_sec               : 0.272632 秒
+  * Sequential_Read_Speed_MBps         : 4380.74
+  * Sequential_Read_Time_sec           : 0.096847 秒
+  * Sweep_Build_Time                   : 0.200477 秒
+  * Sweep_Exact_Time                   : 11.279023 秒
+  * Sweep_QPS                          : 103001.88
+  * Sweep_Query_Time                   : 0.194172 秒
+  * Sweep_Recall                       : 0.995850 (99.5850%)
+  * Total_Core_Execution_Time_sec      : 12.718960 秒
+  * ef                                 : 100.000000 秒
+  * ef_construction                    : 100.000000 秒
+--------------------------------------------------
+
+【結果摘要】各項指標之幾何平均數 (Geometric Mean):
+-----------------------------------------------------------------
+  [ 實驗時間指標 (Time Metrics) ]
+  * Dataset_Sampling_Time_sec           : 11.9674 秒
+  * Embed_Runtime_sec                   : 143.4588 秒
+  * Metrics_Exact_Time_sec              : 2.4825 秒
+  * Metrics_HNSW_Build_Query_sec        : 0.2324 秒
+  * Random_Read_Time_sec                : 0.2726 秒
+  * Sequential_Read_Time_sec            : 0.0968 秒
+  * Sweep_Build_Time                    : 0.2005 秒
+  * Sweep_Exact_Time                    : 11.2790 秒
+  * Sweep_Query_Time                    : 0.1942 秒
+  * Total_Core_Execution_Time_sec       : 12.7190 秒
+
+  [ 系統效能與速度指標 (Performance & Speed Metrics) ]
+  * Sweep_QPS                           : 103,001.88 QPS (次/秒)
+  * Random_Read_Speed_MBps              : 71.64 MB/s
+  * Sequential_Read_Speed_MBps          : 4,380.74 MB/s
+
+  [ 演算法精確度指標 (Accuracy Metrics) ]
+  * Metrics_Recall                      : 99.8840%
+  * Sweep_Recall                        : 99.5850%
+
+  [ HNSW 演算法超參數與資料集規模 (Parameters & Dataset Size) ]
+  * M                                   : 16
+  * ef                                  : 100
+  * ef_construction                     : 100
+  * Dataset_Size                        : 20,000 筆向量
+-----------------------------------------------------------------
+
+================================================================================
+ 【系統自動產出】波動度分析報告 (基於幾何平均數歸一化)
+================================================================================
+指標 Data Sampling                  | 3次實驗幾何均值:    11.9674 秒 | 波動係數(CV):  0.1781
+指標 Embed Gen                      | 3次實驗幾何均值:   143.4588 秒 | 波動係數(CV):  0.0012
+指標 Exact Search                   | 3次實驗幾何均值:     2.4825 秒 | 波動係數(CV):  0.0103
+指標 HNSW Index (Build+Query)       | 3次實驗幾何均值:     0.2324 秒 | 波動係數(CV):  0.0029
+================================================================================
+
+
+
+
+指標 [E05_Duration_Seconds]:
+  各次數值: [8.26, 8.25, 8.24]
+  幾何平均: 8.2500
+指標 [E05_Peak_Memory_MB]:
+  各次數值: [537.09, 537.04, 536.96]
+  幾何平均: 537.0300
+指標 [E05_Total_Pairs_Found]:
+  各次數值: [7557, 7557, 7557]
+  幾何平均: 7557.0000
+指標 [E06_Computation_Elapsed_Time]:
+  各次數值: [1.5048530101776123, 1.4987382888793945, 1.5071656703948975]
+  幾何平均: 1.5036
+指標 [E06_Computation_Memory_GB]:
+  各次數值: [1.2815780639648438, 1.2813873291015625, 1.2823944091796875]
+  幾何平均: 1.2818
+指標 [E07_Final_Elapsed]:
+  各次數值: [0.9009063243865967, 0.8880302906036377, 0.8806653022766113]
+  幾何平均: 0.8898
+指標 [E07_Peak_Memory_GB]:
+  各次數值: [0.5744361877441406, 0.5761222839355469, 0.57440185546875]
+  幾何平均: 0.5750
